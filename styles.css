@@ -10,16 +10,16 @@ body {
     position: fixed;  /* Ensures it stays fixed */
     top: 0;
     left: 0;
-    width: 100vw;  /* Viewport width */
-    height: 100vh;  /* Viewport height */
+    width: 100%;  /* Viewport width */
+    height: 100%;  /* Viewport height */
     background-color: black;
     z-index: -1;
 }
- 
  
 .footer {
     background: #333;
     color: white;
     padding: 20px;
+    width: 100%;
 }
 
