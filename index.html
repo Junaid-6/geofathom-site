@@ -3,69 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geofathom (SMC-Pvt) Ltd.</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-
+    <title>Geofathom SMC Pvt Ltd</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             text-align: center;
-            padding: 50px;
-            background: linear-gradient(120deg, #3498db, #1f861f);
+        }
+        .hero {
+            background: url('tech-background.jpg') no-repeat center center/cover;
             color: white;
-            overflow: hidden;
+            padding: 100px 20px;
         }
         .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            max-width: 600px;
-            margin: auto;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            animation: fadeIn 2s ease-in-out;
+            padding: 40px 20px;
         }
-        h1 {
-            font-size: 28px;
-            animation: slideIn 1.5s ease-in-out;
+        .services, .contact {
+            background: #f4f4f4;
+            padding: 40px 20px;
         }
-        p {
-            font-size: 18px;
-            color: #f1f1f1;
-            animation: fadeIn 2.5s ease-in-out;
-        }
-        .container:nth-child(2) {
-            margin-top: 20px;
-            animation: bounceIn 2s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes bounceIn {
-            0% { transform: scale(0.9); opacity: 0; }
-            50% { transform: scale(1.05); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
+        .footer {
+            background: #333;
+            color: white;
+            padding: 20px;
         }
     </style>
 </head>
 <body>
-    <a href="https://wa.me/923251185046?text=Hello%2C%20I%20am%20interested%20in%20your%20services!" target="_blank" style="display: inline-block; margin-top: 20px; padding: 10px 20px; font-size: 18px; color: white; background-color: #25D366; text-decoration: none; border-radius: 5px;">Message Us on WhatsApp</a>
-    <div class="container">
-        <h1>Welcome to Geofathom (SMC-Pvt) Ltd.</h1>
-        <p>Our website is under development. We will be launching soon.</p>
-        <p>For inquiries, contact us at <strong>junaid@geofathom.com</strong></p>
+    <div class="hero">
+        <h1>Geofathom SMC Private Limited</h1>
+        <p>Innovating AI, Automation, Robotics, and Software Solutions</p>
     </div>
-
+    
     <div class="container">
-        <h1>We produce and publish software and games on all platforms with excellence</h1>
+        <h2>About Us</h2>
+        <p>Geofathom specializes in AI-driven software, automation tools, and robotics applications, delivering cutting-edge enterprise solutions.</p>
     </div>
-  
-
-</html>
+    
+    <div class="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>AI & Machine Learning Software</li>
+            <li>Enterprise & Consumer Automation Solutions</li>
+            <li>Robotics & IoT-Based Smart Devices</li>
+            <li>Cloud-Based Game & App Hosting</li>
+            <li>GIS & UAV-Based Data Analysis</li>
+        </ul>
+    </div>
+    
+    <div class="contact">
+        <h2>Contact Us</h2>
+        <p>Email: contact@geofathom.com</p>
+        <p>Phone: +123-456-7890</p>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2024 Geofathom SMC Private Limited. All Rights Reserved.</p>
+    </div>
 </body>
 </html>
