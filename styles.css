@@ -107,6 +107,7 @@ body {
     .menu {
        position: fixed;
        top: 50%;
+       padding-top: 70px;
     }
     .logo{
         position: relative;
