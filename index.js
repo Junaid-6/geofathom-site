@@ -8,7 +8,7 @@ $(document).ready(function() {
     navItems.forEach(item => {
         const navLink = $("<a></a>")
             .text(item)
-            .attr("href", "#")
+            .attr("href", "store.html")
             .addClass("nav-link");
         navContainer.append(navLink);
     });
