@@ -75,7 +75,7 @@ function handleParticles() {
 
 // Generate new particles every few seconds
 setInterval(() => {
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 5; i++) {
         particleArray.push(new Particle());
     }
 }, 500);
