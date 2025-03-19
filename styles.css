@@ -142,7 +142,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     #logo {
-        width: 30%;
+        width: 40%;
         left: 35%;
         top: 5%;
     }
@@ -168,7 +168,7 @@ body {
 
 @media (max-width: 480px) {
     #logo {
-        width: 60%;
+        width: 80%;
         left: 20%;
         top: 8%;
     }

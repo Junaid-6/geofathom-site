@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Geofathom</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #a7866c; /* Primary color */
+            --secondary: #2f302f; /* Secondary color */
+            --accent: #ff6b6b; /* Accent color */
+            --text-light: #f4f4f4; /* Light text */
+            --bg-dark: #0a0a0a; /* Dark background */
+            --navbar-height: 60px; /* Navbar height */
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        #canvas1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark);
+            z-index: -1;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: var(--navbar-height);
+            background-color: rgba(51, 51, 51, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 0 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 10px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 24px;
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary);
+            color: var(--text-light);
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-section p {
+                font-size: 1rem;
+            }
+
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-section h1 {
+                font-size: 2rem;
+            }
+
+            .contact-section p {
+                font-size: 0.9rem;
+            }
+
+            .social-link {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+        <h1>Contact Us</h1>
+        <p>Connect with us on social media or reach out for collaborations.</p>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@GeoFathom" class="social-link" target="_blank"><img src="/Icons/youtube.png" alt=""></a> <!-- YouTube -->
+            <a href="https://www.instagram.com/geofathom" class="social-link" target="_blank"><img src="/Icons/instagram.png" alt=""></a> <!-- Instagram -->
+            <a href="https://linkedin.com/company/geofathom-smc-private-limited" class="social-link" target="_blank"><img src="/Icons/linkedin.png" alt=""></a> <!-- LinkedIn -->
+            <a href="mailto:info@geofathom.com" class="social-link" target="_blank"><img src="/Icons/Mail.png" alt=""></a> <!-- Email -->
+            <a href="https://www.facebook.com/geofathomofficialpage" class="social-link" target="_blank"><img src="/Icons/Facebook.png" alt=""></a> <!-- Facebook -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 Geofathom. All rights reserved.
+    </div>
+
+    <!-- Canvas for Background Animation -->
+    <canvas id="canvas1"></canvas>
+</body>
+</html>
