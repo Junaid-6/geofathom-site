@@ -169,7 +169,7 @@ body {
 @media (max-width: 480px) {
     #logo {
         width: 80%;
-        left: 20%;
+        left: 12%;
         top: 8%;
     }
 
@@ -178,7 +178,7 @@ body {
     }
 
     .menu {
-        top: 25%;
+        top: 35%;
         width: 90%;
     }
 
