@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Solutions - Next-Gen Innovation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 1s;
+        }
+
+        .section-header.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            background: linear-gradient(45deg, #00f3ff, #6a00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.5s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service-card.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            color: #00f3ff;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .gradient-border {
+            position: relative;
+        }
+
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00f3ff, #6a00ff);
+            z-index: -1;
+            border-radius: 15px;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+       
+        /* Add this to your existing CSS */
+    @media (min-width: 768px) {
+        .service-card.large-card {
+            grid-column: span 2;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .service-card.large-card h2 {
+            font-size: 2em;
+            margin-bottom: 25px;
+        }
+        
+        .service-card.large-card p {
+            font-size: 1.1em;
+            max-width: 800px;
+        }
+    }
+
+     
+    @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="canvas-bg" id="canvas"></canvas>
+
+    <div class="container">
+        <div class="section-header">
+            <h1>Geofathom Tech Solutions</h1>
+        </div>
+
+        <div class="service-grid">
+            <!-- Software Solutions -->
+            <div class="service-card gradient-border">
+                <h2>Software Solutions</h2>
+                <p>AI-driven software, automation tools, cloud platforms, SaaS solutions, and enterprise software development with cutting-edge ML research.</p>
+            </div>
+
+            <!-- Digital Distribution -->
+            <div class="service-card gradient-border">
+                <h2>Digital Platforms</h2>
+                <p>Cloud-based game hosting, app marketplaces, SaaS platforms, and global digital distribution networks.</p>
+            </div>
+
+            <!-- Hardware & IoT -->
+            <div class="service-card gradient-border">
+                <h2>Smart Hardware</h2>
+                <p>Robotics, IoT devices, industrial automation, PCB electronics, and UAV-based GIS solutions with AI integration.</p>
+            </div>
+
+            <!-- Global Trade -->
+            <div class="service-card gradient-border">
+                <h2>Global Operations</h2>
+                <p>Worldwide trade, import/export, licensing, and regulatory-compliant distribution of tech solutions.</p>
+            </div>
+
+            <!-- Gaming Solutions -->
+<div class="service-card gradient-border">
+    <h2>Gaming Solutions</h2>
+    <p>Educational games and entertainment experiences across platforms, featuring AI-driven interactive learning, immersive gameplay mechanics, and cross-platform compatibility for desktop, mobile, and cloud gaming ecosystems.</p>
+</div>
+        </div>
+    </div>
+
+    <script>
+        // Canvas Background Animation
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Particle System
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 3;
+                this.alpha = Math.random() * 0.5;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas.width || 
+                    this.y < 0 || this.y > canvas.height) {
+                    this.reset();
+                }
+            }
+        }
+
+        const particles = Array(100).fill().map(() => new Particle());
+
+        function animate() {
+            ctx.fillStyle = '#0a0a0a';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Scroll Animations
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                $('.section-header').each(function() {
+                    if ($(this).offset().top < $(window).scrollTop() + $(window).height() - 100) {
+                        $(this).addClass('active');
+                    }
+                });
+
+                $('.service-card').each(function(i) {
+                    if ($(this).offset().top < $(window).scrollTop() + $(window).height() - 100) {
+                        setTimeout(() => {
+                            $(this).addClass('active');
+                        }, i * 200);
+                    }
+                });
+            }).scroll();
+        });
+
+        // Hover Effect
+        $('.service-card').hover(
+            function() {
+                $(this).css('transform', 'translateY(-10px)');
+            },
+            function() {
+                $(this).css('transform', 'translateY(0)');
+            }
+        );
+    </script>
+</body>
+</html>

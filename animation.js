@@ -17,7 +17,7 @@ class Particle {
         this.y = Math.random() * canvas.height;
         this.speedX = Math.random() * 2 - 1;
         this.speedY = Math.random() * 2 - 1;
-        this.size = Math.random() * 5 + 1;
+        this.size = Math.random() * 10 + 1;
         this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
     }
     
@@ -78,7 +78,7 @@ setInterval(() => {
     for (let i = 0; i < 5; i++) {
         particleArray.push(new Particle());
     }
-}, 500);
+}, 350);
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
