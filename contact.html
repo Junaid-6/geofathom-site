@@ -4,86 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Geofathom</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Global Styles */
-        :root {
-            --primary: #a7866c; /* Primary color */
-            --secondary: #2f302f; /* Secondary color */
-            --accent: #ff6b6b; /* Accent color */
-            --text-light: #f4f4f4; /* Light text */
-            --bg-dark: #0a0a0a; /* Dark background */
-            --navbar-height: 60px; /* Navbar height */
-        }
-
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            overflow-x: hidden;
-        }
-
-        #canvas1 {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-dark);
-            z-index: -1;
-        }
-
-        /* Navigation Bar */
-        #navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            height: var(--navbar-height);
-            background-color: rgba(51, 51, 51, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding: 0 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            z-index: 100;
-        }
-
-        .nav-container {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-link {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-            padding: 10px 0;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--accent);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
+ 
 
         /* Contact Section */
         .contact-section {
@@ -112,7 +35,8 @@
 
         .social-links {
             display: flex;
-            gap: 20px;
+            flex-direction: row;
+            gap: 30px;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -136,18 +60,7 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-
-        /* Footer */
-        .footer {
-            background: var(--secondary);
-            color: var(--text-light);
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-        }
-
+ 
         /* Responsive Design */
         @media (max-width: 768px) {
             .contact-section h1 {
