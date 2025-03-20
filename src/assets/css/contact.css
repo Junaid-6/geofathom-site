@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Geofathom</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
  
 
         /* Contact Section */
@@ -93,39 +85,3 @@
                 font-size: 18px;
             }
         }
-    </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <div id="navbar">
-        <div class="nav-container">
-            <img src="logo.png"   alt="">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="services.html" class="nav-link">Services</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-        </div>
-    </div>
-
-    <!-- Contact Section -->
-    <div class="contact-section">
-        <h1>Contact Us</h1>
-        <p>Connect with us on social media or reach out for collaborations.</p>
-        <div class="social-links">
-            <a href="https://www.youtube.com/@GeoFathom" class="social-link" target="_blank"><img src="/Icons/youtube.png" alt=""></a> <!-- YouTube -->
-            <a href="https://www.instagram.com/geofathom" class="social-link" target="_blank"><img src="/Icons/instagram.png" alt=""></a> <!-- Instagram -->
-            <a href="https://linkedin.com/company/geofathom-smc-private-limited" class="social-link" target="_blank"><img src="/Icons/linkedin.png" alt=""></a> <!-- LinkedIn -->
-            <a href="mailto:info@geofathom.com" class="social-link" target="_blank"><img src="/Icons/Mail.png" alt=""></a> <!-- Email -->
-            <a href="https://www.facebook.com/geofathomofficialpage" class="social-link" target="_blank"><img src="/Icons/Facebook.png" alt=""></a> <!-- Facebook -->
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        &copy; 2025 Geofathom. All rights reserved.
-    </div>
-
-    <!-- Canvas for Background Animation -->
-    <canvas id="canvas1"></canvas>
-</body>
-</html>

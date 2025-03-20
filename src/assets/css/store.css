@@ -1,0 +1,228 @@
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #00ff9d;
+    --accent-color: #7a00ff;
+    --text-color: #ffffff;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--primary-color);
+    color: var(--text-color);
+    position: relative;
+}
+
+#canvas-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    justify-self: unset;
+    align-items: stretch;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+.filters select{
+   background-color: #1a1a1a;
+   width: 10%;
+}
+.filters input{
+    width: 30%;
+    background-color: #1a1a1a;
+}
+.filters .filter-group button{
+    width: fit-content;
+    padding: auto;
+    background-color: #1a1a1a;
+}
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    position: relative; 
+    gap: 40px;
+    padding: 100px 400px;
+}
+
+.product-card {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px; 
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.image-carousel {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.5s ease;
+}
+
+.product-info {
+    padding: 15px;
+    background-color: #212352;            
+}
+
+.product-price {
+    color: var(--secondary-color);
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 10px 0;
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+.badge {
+    background: var(--accent-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+input, select, button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--accent-color);
+    transform: scale(1.4); 
+}
+
+
+.out-of-stock {
+    color: #ff5555;
+    animation: pulse 1.5s infinite;
+}
+
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+ 
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .filters input,
+    .filters select {
+        width: 100%;
+        max-width: none;
+        font-size: 14px;
+    }
+
+    .filter-group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+    }
+
+    .filter-group button {
+        width: 100%;
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .product-card {
+        margin-bottom: 10px;
+    }
+
+    .image-carousel {
+        height: 150px;
+    }
+    
+    .product-info{
+        background-color: #090b92;
+    }
+    .product-info h3 {
+        font-size: 16px;
+    }
+
+    .product-price {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .filters {
+        padding: 10px;
+    }
+
+    .image-carousel {
+        height: 120px;
+    }
+
+    .product-info {
+        padding: 10px;
+        background-color: #090b92;
+    }
+
+    .badge {
+        font-size: 0.7em;
+    }
+
+    /* Adjust particle count for mobile performance */
+    .particle {
+        display: none;
+    }
+}
+
+/* Add this to existing CSS */
+.filters input,
+.filters select {
+    width: 100%;
+    max-width: 200px;
+    font-size: 14px;
+}
+
+.filter-group {
+    gap: 8px;
+}

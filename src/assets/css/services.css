@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.canvas-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 5% auto;
+    padding: 40px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s;
+}
+
+.section-header.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1 {
+    font-size: 3.5em;
+    background: linear-gradient(45deg, #00f3ff, #6a00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;            
+  
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(30px);
+    cursor: pointer;
+}
+
+.service-card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+    color: #00f3ff;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+p {
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.gradient-border {
+    position: relative;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00f3ff, #6a00ff);
+    z-index: -1;
+    border-radius: 15px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+
+/* Add this to your existing CSS */
+@media (min-width: 768px) {
+ 
+.service-card.large-card {
+    grid-column: span 2;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.service-card.large-card h2 {
+    font-size: 2em;
+    margin-bottom: 25px;
+}
+
+.service-card.large-card p {
+    font-size: 1.1em;
+    max-width: 800px;
+}
+}
+
+
+@media (max-width: 768px) {
+     .container{
+        position: absolute;
+        top: 10%;
+     }
+    h1 {
+        font-size: 2.5em;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+}

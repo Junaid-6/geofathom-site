@@ -145,6 +145,10 @@ body {
     text-align: center;
     margin-top: auto;
 }
+ .menu-item a{
+        text-decoration: none; 
+        color: #f4f4f4;
+    }
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -174,8 +178,8 @@ body {
         font-size: 20px;
         padding: 15px 30px;
     }
+   
 }
-
 @media (max-width: 480px) {
     #logo {
         width: 80%;
