@@ -54,9 +54,16 @@ body {
 
 .nav-container {
     display: flex;
-    gap: 20px;
+    flex-direction: row;
+    gap: 40px;
+    align-self: center;
+
 }
 
+#navbar img{ 
+    width: 4%;
+}
+ 
 .nav-link {
     color: var(--text-light);
     text-decoration: none;
@@ -153,6 +160,9 @@ body {
 
     .nav-link {
         font-size: 16px;
+    }
+    #navbar img{
+        width: 12%;
     }
 
     .menu {
