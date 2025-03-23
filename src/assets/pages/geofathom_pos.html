@@ -28,7 +28,7 @@
 
         .navbar {
             background: linear-gradient(135deg, rgba(0,230,118, 0.8),  rgba(0, 123, 255, 0.8)); 
-            padding: 0 1rem 0 0;
+            padding: 0.1rem 1rem;
             color: white;
             display: flex;
             justify-content: space-between;
@@ -45,6 +45,7 @@
             align-items: center;
             font-size: auto;
         }
+
         .logo-img {
             height: 70px; /* Adjust size as needed */
             width: auto;
@@ -78,6 +79,10 @@
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             text-align: center;
+        }
+
+        .hero #appName{
+            font-size: 5rem;
         }
 
         .hero img {
@@ -240,7 +245,11 @@
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.5rem;
+            }
+
+            .hero #appName{
+                font-size: 3rem;
             }
             
             .feature-section-title {
@@ -255,8 +264,7 @@
             <div class="logo">
                 <img src="/src/assets/images/logo circular.png" alt="Geofathom Logo" class="logo-img">
             </div>
-            <h1>
-                Geofathom POS</h1>
+            <h1>Geofathom POS</h1>
         </div>
       
         <div class="nav-links">
@@ -268,6 +276,7 @@
     </nav>
 
     <section class="hero"> 
+        <h1 id="appName">Geofathom POS</h1> 
         <h1>Transform Your Retail Operations</h1>
         <p>Advanced POS System with GeoAI-Driven Analytics</p>
         <div class="cta-buttons">
