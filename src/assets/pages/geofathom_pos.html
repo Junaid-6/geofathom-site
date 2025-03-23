@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geofathom POS - Intelligent Retail Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a237e;
+            --secondary: #00e676;
+            --accent: #0d47a1;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, rgba(0,230,118, 0.8),  rgba(0, 123, 255, 0.8)); 
+            padding: 0 1rem 0 0;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000; 
+            backdrop-filter: blur(10px); /* Optional: adds a nice blur effect */
+
+        }
+        .navbar #logo_appName{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: auto;
+        }
+        .logo-img {
+            height: 70px; /* Adjust size as needed */
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+        }
+
+        .hero img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,230,118,0.3);
+        }
+
+        .features {
+            padding: 4rem 2rem;
+        }
+
+        .feature-section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .category-badge {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            margin: 3rem auto;
+            width: fit-content;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-text h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-text p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            padding: 5rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .platform-support {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .platform-support i {
+            font-size: 2.5rem;
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+
+        .platform-support i:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .feature-section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div id="logo_appName">
+            <div class="logo">
+                <img src="/src/assets/images/logo circular.png" alt="Geofathom Logo" class="logo-img">
+            </div>
+            <h1>
+                Geofathom POS</h1>
+        </div>
+      
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#security">Security</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero"> 
+        <h1>Transform Your Retail Operations</h1>
+        <p>Advanced POS System with GeoAI-Driven Analytics</p>
+        <div class="cta-buttons">
+            <a href="#demo" class="btn btn-primary">
+                <i class="fas fa-desktop"></i> Request Demo
+            </a>
+            <a href="#trial" class="btn btn-primary">
+                <i class="fas fa-rocket"></i> Start Free Trial
+            </a>
+        </div>
+    </section>
+
+ 
+
+    <section class="features" id="features">
+        <h2 class="feature-section-title">Enterprise-Grade Features</h2> 
+        <div class="feature-grid">
+            <div class="feature-item">
+                <i class="fas fa-users-cog feature-icon"></i>
+                <div class="feature-text">
+                    <h3>Role-Based Access Control</h3>
+                    <p>Granular permissions with hierarchical user roles and access levels</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-network-wired feature-icon"></i>
+                <div class="feature-text">
+                    <h3>Multi-Location Management</h3>
+                    <p>Centralized control for unlimited stores and warehouses and franchises</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-sync-alt feature-icon"></i>
+                <div class="feature-text">
+                    <h3>Offline-First Architecture</h3>
+                    <p>Seamless operation with automatic sync when connection restored</p>
+                </div>
+            </div>
+ 
+                <div class="feature-item">
+                    <i class="fas fa-file-invoice-dollar feature-icon"></i>
+                    <div class="feature-text">
+                        <h3>Automated End-of-Day Reports</h3>
+                        <p>Comprehensive daily summaries including:
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li>✓ Sales performance by product/category</li>
+                                <li>✓ Employee productivity metrics</li>
+                                <li>✓ Cash flow analysis</li>
+                                <li>✓ Inventory adjustments</li>
+                                <li>✓ Tax calculations</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-bar feature-icon"></i>
+                    <div class="feature-text">
+                        <h3>Custom Report Builder</h3>
+                        <p>Create tailored reports with drag-and-drop interface:
+                            <div class="report-features">
+                                <span class="report-badge">Multiple export formats</span>
+                                <span class="report-badge">Scheduled automation</span>
+                                <span class="report-badge">Cross-location comparison</span>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bell feature-icon"></i>
+                    <div class="feature-text">
+                        <h3>Smart Audit Trails</h3>
+                        <p>Automatic tracking of all POS activities:
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li>✓ User action logging</li>
+                                <li>✓ Transaction history</li>
+                                <li>✓ System changes monitor</li>
+                                <li>✓ Anomaly detection</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div> 
+
+        </div>
+
+        <div class="category-badge">Business Intelligence</div>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <i class="fas fa-chart-pie feature-icon"></i>
+                <div class="feature-text">
+                    <h3>Real-Time Dashboards</h3>
+                    <p>Interactive sales, inventory, and financial analytics</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-brain feature-icon"></i>
+                <div class="feature-text">
+                    <h3>Predictive Analytics</h3>
+                    <p>AI-powered demand forecasting and inventory optimization</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-map-marked-alt feature-icon"></i>
+                <div class="feature-text">
+                    <h3>GIS Sales Mapping</h3>
+                    <p>Geospatial customer insights and territory management</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-badge">Retail Ecosystem</div>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <i class="fas fa-cash-register feature-icon"></i>
+                <div class="feature-text">
+                    <h3>Full Hardware Integration</h3>
+                    <p>Barcode scanners, cash drawers, scales, and customer displays</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-credit-card feature-icon"></i>
+                <div class="feature-text">
+                    <h3>Omnichannel Payments</h3>
+                    <p>Support for 50+ payment gateways and cryptocurrency</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-robot feature-icon"></i>
+                <div class="feature-text">
+                    <h3>AI Assistant</h3>
+                    <p>Automated reporting and smart business recommendations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Start Your Digital Transformation</h2>
+        <div class="platform-support">
+            <i class="fab fa-windows" title="Windows"></i>
+            <i class="fab fa-apple" title="macOS"></i>
+            <i class="fab fa-android" title="Android"></i>
+            <i class="fas fa-tablet-alt" title="iPad"></i> 
+        </div>
+        <p>Universal compatibility across all devices and platforms</p>
+        <div class="cta-buttons" style="margin-top: 2rem;">
+            <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-phone-alt"></i> Contact Sales
+            </a>
+            <a href="#docs" class="btn btn-primary">
+                <i class="fas fa-book-open"></i> Documentation
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#security">Security</a>
+                <a href="#status">Status</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="#about">About</a>
+                <a href="#blog">Blog</a>
+                <a href="#careers">Careers</a>
+                <a href="#partners">Partners</a>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <a href="#docs">Documentation</a>
+                <a href="#guides">Guides</a>
+                <a href="#api">API Reference</a>
+                <a href="#support">Support</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+                <a href="#gdpr">GDPR</a>
+                <a href="#cookies">Cookies</a>
+            </div>
+        </div>
+        <div class="footer-bottom" style="text-align: center; margin-top: 3rem; opacity: 0.8;">
+            <p>© 2025 Geofathom POS. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

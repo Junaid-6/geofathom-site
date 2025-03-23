@@ -23,7 +23,7 @@
             <button data-payment-type="onetime">One-Time</button>
             <button data-payment-type="subscription">Subscription</button>
         </div>
-    </div>
+    </div> 
 
     <div class="products-grid" id="products-container"></div>
 
@@ -98,7 +98,8 @@ function animate() {
                               "images": "http://dummyimage.com/126x100.png/dddddd/000000",
                               "stock": 61,
                               "date": "10/12/2024",
-                              "type": "Pink"
+                              "type": "Software",
+                              "page": "/src/assets/pages/geofathom_pos.html"
                             }, {
                               "id": 100,
                               "name": "CAD Geo Spatial Plugin",
@@ -108,14 +109,16 @@ function animate() {
                               "images": "http://dummyimage.com/144x100.png/cc0000/ffffff",
                               "stock": 13,
                               "date": "1/12/2025",
-                              "type": "Red"
+                              "type": "Plugin",
+                              "page": "/src/assets/pages/geofathom_spatials.html"
                             }]
             // Render Products
+
             function renderProducts(products) { 
                 $('#products-container').empty();
                 products.forEach(product => {
                     const productHtml = `
-                        <div class="product-card">
+                        <div class="product-card" data-url="${product.page}">
                             <div class="image-carousel">
                                 <img src="${product.images}" class="product-image" alt="${product.name}">
                             </div>
@@ -132,7 +135,16 @@ function animate() {
                     `;
                     $('#products-container').append(productHtml);
                 });
+
+                // Make the whole card clickable
+                $('.product-card').on('click', function () {
+                    const link = $(this).data('url');
+                    if (link) {
+                        window.location.href = link;
+                    }
+                });
             }
+
 
 
             // Filter Functions
