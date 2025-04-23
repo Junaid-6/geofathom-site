@@ -3,38 +3,757 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geofathom</title>
+    <title>Geofathom | Spatial Intelligence Solutions</title>
+    <meta name="description" content="Geofathom provides cutting-edge geospatial analytics and spatial intelligence solutions for enterprise applications.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/assets/css/styles.css">
+    <!-- <link rel="stylesheet" href="/src/assets/css/styles.css"> -->
+    <style>
+        /* Modern Professional CSS */
+:root {
+    /* Color Palette */
+    --primary: #3a86ff;       /* Vibrant blue */
+    --primary-dark: #2667cc;
+    --primary-light: #7fb2ff;
+    --secondary: #8338ec;     /* Purple */
+    --accent: #ff006e;        /* Pink */
+    --dark: #0a0a0a;         /* Near black */
+    --dark-gray: #1a1a1a;
+    --medium-gray: #333333;
+    --light-gray: #e0e0e0;
+    --light: #f8f9fa;        /* Off white */
+    
+    /* Typography */
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Space Grotesk', sans-serif;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-xxl: 3rem;
+    
+    /* Effects */
+    --glass-blur: blur(16px);
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.3);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--light);
+    background-color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+/* Particles Background */
+.particles-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-gray) 100%);
+}
+
+/* Glassmorphism Navigation */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--space-md) var(--space-xl);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.logo {
+    height: 32px;
+    width: auto;
+}
+
+.logo-text {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 1.25rem;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    padding: var(--space-sm) 0;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.nav-link::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: white;
+    font-weight: 600;
+}
+
+.cta-button {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 4px;
+    font-weight: 600;
+    color: white !important;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(58, 134, 255, 0.3);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    min-height: 100vh;
+    padding: var(--space-xxl);
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: var(--space-xl);
+    z-index: 10;
+}
+
+.hero-visual {
+    flex: 1;
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: var(--space-md);
+    background: linear-gradient(90deg, white 0%, var(--light-gray) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title-line {
+    display: block;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--space-xl);
+    max-width: 600px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.primary-button, .secondary-button {
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 4px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    transition: var(--transition);
+}
+
+.primary-button {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.secondary-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: var(--glass-blur);
+}
+
+.secondary-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.data-sphere {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Content Grid */
+.content-grid {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: var(--space-xxl);
+    position: relative;
+}
+
+.section-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-bottom: var(--space-xl);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    border-radius: 2px;
+}
+
+/* Card Grid */
+.card-grid-section {
+    margin-bottom: var(--space-xxl);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: var(--space-xl);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 20%, rgba(58, 134, 255, 0.15) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+    color: var(--primary);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.card-description {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-lg);
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.card-link i {
+    transition: transform 0.3s ease;
+}
+
+.card-link:hover i {
+    transform: translateX(4px);
+}
+
+/* Value Proposition */
+.value-proposition {
+    display: flex;
+    gap: var(--space-xl);
+    margin: var(--space-xxl) 0;
+}
+
+.value-content {
+    flex: 1;
+}
+
+.value-visual {
+    flex: 1;
+    min-height: 400px;
+    position: relative;
+}
+
+.value-points {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+}
+
+.value-point {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.value-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(58, 134, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+
+.value-text h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+}
+
+.value-text p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.hexagon-grid {
+    width: 100%;
+    height: 100%;
+}
+
+/* Footer */
+.glass-footer {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--space-xxl) var(--space-xl);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    height: 40px;
+    margin-bottom: var(--space-md);
+}
+
+.footer-mission {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-md);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.social-links a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+.footer-heading {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-md);
+    color: white;
+}
+
+.footer-links a {
+    display: block;
+    margin-bottom: var(--space-sm);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 4px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-xxl);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.legal-links {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.legal-links a {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.legal-links a:hover {
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: var(--space-xl);
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .value-proposition {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .hero, .content-grid {
+        padding: var(--space-xl);
+    }
+    
+    .hero-title .title-line {
+        display: inline;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* 3D Data Sphere Styles */
+#data-sphere {
+    animation: float 6s ease-in-out infinite;
+}
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <div id="navbar">
+      <!-- Animated Background -->
+    <div class="particles-background" id="particles-js"></div>
+    
+    <!-- Glassmorphism Navigation -->
+    <nav class="glass-nav">
         <div class="nav-container">
-            <img src="/src/assets/images/logo.png"   alt="">
-            <a href="/" class="nav-link">Home</a>
-            <a href="/about/" class="nav-link">About</a>
-            <a href="/services/" class="nav-link">Services</a>
-            <a href="/contact/" class="nav-link">Contact</a>
-            <a href="/customer/contact/" class="nav-link">Customer Support</a>
+            <div class="logo-container">
+                <img src="/src/assets/images/logo.png" alt="Geofathom Logo" class="logo">
+                <span class="logo-text">GEOFATHOM</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link active" data-text="Home">Home</a>
+                <a href="/about/" class="nav-link" data-text="About">About</a>
+                <a href="/services/" class="nav-link" data-text="Services">Services</a>
+                <a href="/solutions/" class="nav-link" data-text="Solutions">Solutions</a>
+                <a href="/contact/" class="nav-link" data-text="Contact">Contact</a>
+                <a href="/customer/contact/" class="nav-link cta-button">Support</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-    </div>
+    </nav>
 
-    <img id="logo" src="/src/assets/images/logo.png" alt="logo">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">Spatial Intelligence</span>
+                <span class="title-line">for the Modern World</span>
+            </h1>
+            <p class="hero-subtitle">Harnessing geospatial analytics to solve complex challenges with precision and insight.</p>
+            <div class="hero-actions">
+                <a href="/solutions/" class="primary-button">Explore Solutions <i class="fas fa-arrow-right"></i></a>
+                <a href="/contact/" class="secondary-button">Contact Us <i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="data-sphere" id="data-sphere"></div>
+        </div>
+    </section>
 
-    <!-- Menu Section -->
-    <div class="menu">
-        <div class="menu-item"><a href="/store/">Store</a></div>
-        <div class="menu-item">Pre Release</div>
-        <div class="menu-item">Upcoming Products</div>
-    </div>
+    <!-- Main Content Section -->
+    <main class="content-grid">
+        <!-- Product Cards -->
+        <section class="card-grid-section">
+            <h2 class="section-title">Our Offerings</h2>
+            <div class="card-grid">
+                <div class="product-card">
+                    <div class="card-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3 class="card-title">Store</h3>
+                    <p class="card-description">Access our catalog of geospatial tools and datasets.</p>
+                    <a href="/store/" class="card-link">Browse Products <i class="fas fa-chevron-right"></i></a>
+                </div>
+                
+                <div class="product-card">
+                    <div class="card-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="card-title">Pre-Release</h3>
+                    <p class="card-description">Get early access to innovative geospatial solutions.</p>
+                    <a href="/prerelease/" class="card-link">View Previews <i class="fas fa-chevron-right"></i></a>
+                </div>
+                
+                <div class="product-card">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="card-title">Upcoming</h3>
+                    <p class="card-description">Discover what's next in spatial intelligence technology.</p>
+                    <a href="/upcoming/" class="card-link">See Roadmap <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition -->
+        <section class="value-proposition">
+            <div class="value-content">
+                <h2 class="section-title">Why Geofathom?</h2>
+                <div class="value-points">
+                    <div class="value-point">
+                        <div class="value-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="value-text">
+                            <h3>Real-time Analytics</h3>
+                            <p>Process and analyze spatial data with unprecedented speed and accuracy.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="value-text">
+                            <h3>Enterprise Security</h3>
+                            <p>Military-grade encryption for all your geospatial data and workflows.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="value-text">
+                            <h3>Seamless Integration</h3>
+                            <p>APIs and SDKs that work with your existing tech stack.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="value-visual">
+                <div class="hexagon-grid" id="hexagon-grid"></div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <div class="footer">
-        &copy; 2025 Geofathom. All rights reserved.
-    </div>
+    <footer class="glass-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="/src/assets/images/logo.png" alt="Geofathom Logo" class="footer-logo">
+                <p class="footer-mission">Advancing spatial intelligence for a better tomorrow.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-heading">Products</h3>
+                <a href="/store/">Store</a>
+                <a href="/solutions/">Solutions</a>
+                <a href="/api/">API</a>
+                <a href="/integrations/">Integrations</a>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-heading">Resources</h3>
+                <a href="/docs/">Documentation</a>
+                <a href="/blog/">Blog</a>
+                <a href="/case-studies/">Case Studies</a>
+                <a href="/webinars/">Webinars</a>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-heading">Company</h3>
+                <a href="/about/">About Us</a>
+                <a href="/careers/">Careers</a>
+                <a href="/contact/">Contact</a>
+                <a href="/press/">Press</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Geofathom SMC Private Limited. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="/privacy/">Privacy Policy</a>
+                <a href="/terms/">Terms of Service</a>
+                <a href="/cookies/">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Canvas for Background Animation -->
-    <canvas id="canvas1"></canvas>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="/src/assets/js/app.js"></script>
 </body>
 <script src="/src/assets/js/animation.js"></script> 
 </html>
